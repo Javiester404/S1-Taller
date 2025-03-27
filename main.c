@@ -69,11 +69,16 @@ int main(int argc, char *argv[]) {
             break;
 
         case 2:
+            if (precio == 0)
+            {
+                printf("------Ingrese un producto primero------");
+                break;
+            }
             do
             {
                 printf("\nIngrese las unidades a vender: ");
                 fflush(stdin);
-                v4=scanf("%d", &venta);
+                v4 = scanf("%d", &venta);
                 if (venta < 1)
                 {
                     printf("El valor de las unidades a vender es incorrecto, porfavor ingrese de nuevo\n");
@@ -86,8 +91,8 @@ int main(int argc, char *argv[]) {
                 {
                     printf("El valor es incorrecto, ingrese un numero\n");
                 }
-            } while (venta > cantidad || venta < 1||v4!=1);
-            
+            } while (venta > cantidad || venta < 1 || v4 != 1);
+
             if (venta > 20)
             {
                 vdescuento = (descuento / 100) * precio;
@@ -96,7 +101,7 @@ int main(int argc, char *argv[]) {
             else{
                 vdescuento=0;
             }
-            
+
             cantidad -= venta;
             gananciaT += venta * (precio - vdescuento);
 
@@ -130,6 +135,11 @@ int main(int argc, char *argv[]) {
             break;
 
         case 4:
+            if (precio == 0)
+            {
+                printf("------Ingrese un producto primero------");
+                break;
+            }
             printf("\nInformacion del producto:\n");
             printf("ID: %s\n", id);
             printf("Nombre: %s\n", nombre);
@@ -138,6 +148,11 @@ int main(int argc, char *argv[]) {
             break;
 
         case 5:
+            if (precio == 0)
+            {
+                printf("------Ingrese un producto primero------");
+                break;
+            }
             printf("\nLas ganancias totales obtenidas hasta el momento son: $%.2f\n", gananciaT);
             break;
 
