@@ -2,8 +2,8 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
-    int opc, id, cantidad = 0, venta, supply;
-    float precio = 0.0, gananciaT = 0.0;
+    int opc, id, cantidad = 0, venta, supply,opc2;
+    float precio = 0.0, gananciaT = 0.0,descuento=0.0,vdescuento=0.0;
     char nombre[60];
 
     do {
@@ -41,8 +41,23 @@ int main(int argc, char *argv[]) {
             if (venta > cantidad) {
                 printf("No hay suficiente stock para realizar la venta.\n");
             } else {
+                printf("Desea colocar un descuento? \n");
+                printf("1. Si\n");
+                printf("2. No\n");
+                scanf("%d",&opc2);
+                switch (opc2) {
+                    case 1:
+                    printf("Ingrese el porcentaje de descuento: ");
+                    scanf("%f",&descuento);
+                    vdescuento=descuento/100*precio;
+                    printf("El valor del descuento es: %.2f\n",vdescuento);
+                    break;
+                    case 2:
+                    vdescuento=0;
+                    break;
+                }
                 cantidad -= venta;
-                gananciaT += venta * precio;
+                gananciaT += venta * (precio-vdescuento);
             }
             break;
 
