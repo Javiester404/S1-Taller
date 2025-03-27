@@ -96,6 +96,7 @@ int main(int argc, char *argv[]) {
             else{
                 vdescuento=0;
             }
+            
             cantidad -= venta;
             gananciaT += venta * (precio - vdescuento);
 
